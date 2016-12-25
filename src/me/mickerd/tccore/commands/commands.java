@@ -19,12 +19,15 @@ public class commands {
 	@SuppressWarnings("unchecked")
 	private void register(Plugin pl, FileConfiguration config, boolean enabled) {
 		 if(enabled = true){
-			 List<String> enabledcmnds = (List<String>) config.getList("Commands.enabled");
+			 List<String> enabledcmnds = (List<String>) config.getList("Commands");
 			 if(enabledcmnds.size() == 0){
 				 ThemeLog.log("No commands enabled!", this.getClass().getName());
 			 } else if(enabledcmnds.size() > 0){
-			     if(enabledcmnds.equals("parade")){
+			     if(enabledcmnds.contains("parade")){
 			    	 ParadeCommand pc = new ParadeCommand("tc-parade", "/<command>", "paradeCommand");
+			         pc.register();
+			     } else if(enabledcmnds.contains("parade")){
+			    	 ParadeCommand pc = new TCTwitter("tc-twitter", "/<command>", "tc-twitter");
 			         pc.register();
 			     } else {
 					 ThemeLog.log("Error!", this.getClass().getName());

@@ -9,5 +9,6 @@
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/server/plugins/TitleAPI-1.7.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/server/plugins/worldedit-bukkit-6.1.3.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/server/craftbukkit-1.10.2-R0.1-SNAPSHOT-latest.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/server/plugins/twitter4j-core-4.0.4-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
