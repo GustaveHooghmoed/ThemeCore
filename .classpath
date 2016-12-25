@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_111">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/server/plugins/ComplexStructures.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/server/plugins/EffectLib-5.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/server/plugins/Essentials-2.x-SNAPSHOT.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/server/plugins/LightAPI.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/server/plugins/TitleAPI-1.7.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/server/plugins/PacketListenerAPI_v3.4.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/server/plugins/ProtocolLib.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/server/plugins/worldedit-bukkit-6.1.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/server/craftbukkit-1.10.2-R0.1-SNAPSHOT-latest.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/server/plugins/twitter4j-core-4.0.4-SNAPSHOT.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Downloads/craftbook-3.9-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Downloads/craftbukkit-1.10.2-R0.1-SNAPSHOT-latest (2).jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Downloads/TweetIt.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>

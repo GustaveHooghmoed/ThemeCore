@@ -1,0 +1,12 @@
+name: ThemeparkCore
+description: Core for a Themepark
+version: 0.03
+author: Michel
+main: me.mickerd.tccore.main.m
+commands:
+   twitter:
+      description: xd
+   castle:
+      description: castle
+   twitter2:
+      description: castle

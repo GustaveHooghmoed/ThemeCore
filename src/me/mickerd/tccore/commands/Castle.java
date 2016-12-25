@@ -1,5 +1,6 @@
 package me.mickerd.tccore.commands;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -13,29 +14,21 @@ import com.rictacius.tweetIt.user.TwitterUserType;
 import com.rictacius.tweetIt.user.UserLoader;
 
 import me.mickerd.tccore.main.m;
+import me.mickerd.tccore.shows.castle.ShowTimer;
 
 
 
-public class TCTwitter implements CommandExecutor {
+public class Castle implements CommandExecutor {
 		 
 	String message = "TwitterAPI error";
 	@Override
 	public boolean onCommand(CommandSender sender, Command arg1, String arg2, String[] args)
 	  {
+		ShowTimer.getMinutesOrSeconds(Integer.valueOf(args[1]));
 		Player p = (Player) sender;
-		if (args.length >= 0)
-	    {
-	      StringBuilder builder = new StringBuilder();
-	      for (int i = 0; i < args.length; i++) {
-	        if (i < args.length - 1) {
-	          builder.append(args[i]).append(" ");
-	        } else {
-	          builder.append(args[i]);
-	        }
-	      }
-	      message = builder.toString();
-	      p.performCommand("tweet " + message);
-	    }
+		ShowTimer.secondsorminutes = String.valueOf(args[1]);
+	      ShowTimer.startT("5 seconds");
+	      Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "rsc font1");
 		return false;
 	  }
 }

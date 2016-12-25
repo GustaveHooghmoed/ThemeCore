@@ -1,5 +1,6 @@
 package me.mickerd.tccore.commands;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -16,13 +17,12 @@ import me.mickerd.tccore.main.m;
 
 
 
-public class TCTwitter implements CommandExecutor {
+public class TCTwitter2 implements CommandExecutor {
 		 
 	String message = "TwitterAPI error";
 	@Override
 	public boolean onCommand(CommandSender sender, Command arg1, String arg2, String[] args)
 	  {
-		Player p = (Player) sender;
 		if (args.length >= 0)
 	    {
 	      StringBuilder builder = new StringBuilder();
@@ -34,7 +34,7 @@ public class TCTwitter implements CommandExecutor {
 	        }
 	      }
 	      message = builder.toString();
-	      p.performCommand("tweet " + message);
+			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "tweet " + message);
 	    }
 		return false;
 	  }
