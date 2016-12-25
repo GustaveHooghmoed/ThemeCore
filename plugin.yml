@@ -1,0 +1,5 @@
+name: ThemeparkCore
+description: Core for a Themepark
+version: 0.03
+author: Michel
+main: me.mickerd.tccore.main.m
