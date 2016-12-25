@@ -7,7 +7,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 
 import me.mickerd.tccore.commands.commands;
+import me.mickerd.tccore.helpers.ThemeLog;
 import me.mickerd.tccore.helpers.config;
+import me.mickerd.tccore.helpers.iPWDLWarning;
 
 public class m extends JavaPlugin implements PluginMessageListener {
 	public static Plugin pl = null;
@@ -30,8 +32,13 @@ public class m extends JavaPlugin implements PluginMessageListener {
 	  public void onPluginMessageReceived(String channel, Player player, byte[] data)
 	  {
 	    if ((channel.equals("WDL|INIT")) && 
-	      (!player.hasPermission("antiwdl.bypass"))) {
-	      Bukkit.dispatchCommand(Bukkit.getConsoleSender(), m.pl.getConfig().getString("punish-command").replace("%p", player.getName()));
+	      (!player.hasPermission("tcwdl.bypass"))) {
+	      Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "ban " + player.getName());
+	      if(iPWDLWarning.check(player.getAddress().getAddress().toString()) == true){
+	    	  Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "banip " +  player.getAddress().getAddress().toString()); 
+		      ThemeLog.log("IPBanned " + player.getName() + " for WDL", "AntiWDL");
+   }
+	      ThemeLog.log("Banned " + player.getName() + " for WDL", "AntiWDL");
 	    }
 	  }
 	  
