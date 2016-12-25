@@ -6,9 +6,9 @@ import me.mickerd.tccore.main.m;
 
 public class iPWDLWarning {
 
-	@SuppressWarnings("unchecked")
+	public static List<String> ip = (List<String>) m.pl.getConfig().getList("ipWDLwarning");
+
 	public static boolean check(String string) {
-		 List<String> ip = (List<String>) m.pl.getConfig().getList("ipWDLwarning");
 		 if(ip.contains(string)){
 			 return true;
 		 } else {

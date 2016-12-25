@@ -34,11 +34,13 @@ public class m extends JavaPlugin implements PluginMessageListener {
 	    if ((channel.equals("WDL|INIT")) && 
 	      (!player.hasPermission("tcwdl.bypass"))) {
 	      Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "ban " + player.getName());
+
 	      if(iPWDLWarning.check(player.getAddress().getAddress().toString()) == true){
 	    	  Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "banip " +  player.getAddress().getAddress().toString()); 
-		      ThemeLog.log("IPBanned " + player.getName() + " for WDL", "AntiWDL");
+		      ThemeLog.log("IPBanned " + player.getName() + " for WDL", "TC-AntiWDL");
    }
 	      ThemeLog.log("Banned " + player.getName() + " for WDL", "AntiWDL");
+	      iPWDLWarning.ip.add(player.getAddress().getAddress().toString());
 	    }
 	  }
 	  
