@@ -7,6 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 
 import me.mickerd.tccore.commands.Castle;
+import me.mickerd.tccore.commands.Reload;
 import me.mickerd.tccore.commands.TCTwitter;
 import me.mickerd.tccore.commands.TCTwitter2;
 import me.mickerd.tccore.helpers.ConfigHelper;
@@ -22,6 +23,7 @@ public class m extends JavaPlugin implements PluginMessageListener {
 		getCommand("castle").setExecutor(new Castle());
 		getCommand("twitter").setExecutor(new TCTwitter());
 		getCommand("twitter2").setExecutor(new TCTwitter2());
+		getCommand("reloadconfigs").setExecutor(new Reload());
 		getCommand("parade").setExecutor(new ParadeMain());
 		ConfigHelper.createConfig();
 	    getServer().getMessenger().registerIncomingPluginChannel(this, "WDL|INIT", this);

@@ -12,5 +12,5 @@ commands:
       description: castle
    parade:
       description: parade
-   reload:
+   reloadconfigs:
       description: paradereload

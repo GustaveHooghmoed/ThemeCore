@@ -8,6 +8,7 @@ import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.ArmorStand;
 
 import me.mickerd.tccore.helpers.ConfigHelper;
@@ -21,29 +22,53 @@ public class ParadeMain implements CommandExecutor, Runnable {
 	}
 
 	ArmorStand cm = null;
-	int x =0;
-	int z= 0;
-	int y=0;
+	String x =null;
+	String z= null;
+	String y= null;
+	private int countcm = 127;
+	private int taskIdCM = 1;
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCommand(CommandSender sender, Command arg1, String arg2, String[] args) {
 		if(args[0].equalsIgnoreCase("spawn")){
 			if(args[1].equalsIgnoreCase("castmember")){
-				x = Integer.valueOf(args[2]);
-				y = Integer.valueOf(args[3]);
-				z = Integer.valueOf(args[4]);
+				x = args[2];
+				y = args[3];
+				z = args[4];
 		        cm =  CastMember.CastMemberSpawn(x,y,z);
-		        Location loc = LocationBuilder.build(x, y, z);
-				org.bukkit.util.Vector v = loc.toVector();
-				cm.setVelocity(v.normalize().multiply(ConfigHelper.loadConfig(ConfigHelper.file).getDouble("parade.speed")));
+		        taskIdCM = Bukkit.getScheduler().scheduleAsyncRepeatingTask(m.rpl(), this, 2L, 2L);
 			}
 		}
 		return false;
 	}
-
+	ConfigHelper cnfg = null;
+	String fconfig = null;
+	@SuppressWarnings("static-access")
 	@Override
 	public void run() {
+		try {
+			cnfg = new ConfigHelper();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(countcm == 0){
+			Bukkit.getScheduler().cancelTask(taskIdCM);
+			countcm = Integer.valueOf(ConfigHelper.getInfo("length"));
+		} else {
+		countcm --;
+		Location loc;
+		try {
+			loc = LocationBuilder.build(ConfigHelper.getInfo("x1"),ConfigHelper.getInfo("y1"),ConfigHelper.getInfo("z1"));
+			org.bukkit.util.Vector v = loc.toVector();
+			cm.setVelocity(v.normalize());
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
+	
 		
 	}
-
+	}
 }
