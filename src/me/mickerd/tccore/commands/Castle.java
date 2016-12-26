@@ -24,10 +24,9 @@ public class Castle implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command arg1, String arg2, String[] args)
 	  {
-		ShowTimer.getMinutesOrSeconds(Integer.valueOf(args[1]));
 		Player p = (Player) sender;
 		ShowTimer.secondsorminutes = String.valueOf(args[1]);
-	      ShowTimer.startT("5 seconds");
+	      ShowTimer.startT("5 seconds", p);
 	      Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "rsc font1");
 		return false;
 	  }

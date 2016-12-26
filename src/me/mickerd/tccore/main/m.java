@@ -9,9 +9,11 @@ import org.bukkit.plugin.messaging.PluginMessageListener;
 import me.mickerd.tccore.commands.Castle;
 import me.mickerd.tccore.commands.TCTwitter;
 import me.mickerd.tccore.commands.TCTwitter2;
+import me.mickerd.tccore.helpers.ConfigHelper;
 import me.mickerd.tccore.helpers.ThemeLog;
 import me.mickerd.tccore.helpers.config;
 import me.mickerd.tccore.helpers.iPWDLWarning;
+import me.mickerd.tccore.shows.parade.ParadeMain;
 
 public class m extends JavaPlugin implements PluginMessageListener {
 	public static Plugin pl = null;
@@ -20,14 +22,14 @@ public class m extends JavaPlugin implements PluginMessageListener {
 		getCommand("castle").setExecutor(new Castle());
 		getCommand("twitter").setExecutor(new TCTwitter());
 		getCommand("twitter2").setExecutor(new TCTwitter2());
-		config configclass = new config(pl,pl.getConfig());
+		getCommand("parade").setExecutor(new ParadeMain());
+		ConfigHelper.createConfig();
 	    getServer().getMessenger().registerIncomingPluginChannel(this, "WDL|INIT", this);
 	    getServer().getMessenger().registerOutgoingPluginChannel(this, "WDL|CONTROL");
 	}
 	
 	public void onDisable(){
 		pl = null;
-
 	    getServer().getMessenger().unregisterIncomingPluginChannel(this, "WDL|INIT");
 	    getServer().getMessenger().unregisterOutgoingPluginChannel(this, "WDL|CONTROL");
 	}

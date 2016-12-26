@@ -34,7 +34,7 @@ public class TCTwitter2 implements CommandExecutor {
 	        }
 	      }
 	      message = builder.toString();
-			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "tweet " + message);
+
 	    }
 		return false;
 	  }
